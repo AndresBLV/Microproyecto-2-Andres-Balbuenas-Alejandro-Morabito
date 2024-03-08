@@ -9,6 +9,7 @@ import { VideogamesPage } from './pages/VideogamesPage/VideogamesPage.jsx';
 import { ClubPage } from './pages/ClubPage/ClubPage.jsx';
 import { Layout } from './components/Layout/Layout.jsx';
 import { CLUB_URL, HOME_URL, LOGIN_URL, PROFILE_URL, REGISTER_URL, VIDEOGAMES_URL } from './constanst/urls.jsx';
+import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
