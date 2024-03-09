@@ -10,6 +10,7 @@ import { ClubPage } from './pages/ClubPage/ClubPage.jsx';
 import { Layout } from './components/Layout/Layout.jsx';
 import { CLUB_URL, HOME_URL, LOGIN_URL, PROFILE_URL, REGISTER_URL, VIDEOGAMES_URL } from './constanst/urls.jsx';
 import './index.css'
+import { PrivateRoute } from './components/PrivateRoute/PrivateRoute.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -17,9 +18,21 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route element={<Layout/>}>
           <Route path={HOME_URL} element={<HomePage/>}/>
-          <Route path={PROFILE_URL} element={<UserProfile/>}/>
-          <Route path={VIDEOGAMES_URL} element={<VideogamesPage/>}/>
-          <Route path={CLUB_URL} element={<ClubPage/>}/>
+          <Route path={PROFILE_URL} element={
+            <PrivateRoute>
+              <UserProfile/>
+            </PrivateRoute>
+          }/>
+          <Route path={VIDEOGAMES_URL} element={
+            <PrivateRoute>
+              <VideogamesPage/>
+            </PrivateRoute>
+          }/>
+          <Route path={CLUB_URL} element={
+            <PrivateRoute>
+              <ClubPage/>
+            </PrivateRoute>
+          }/>
           <Route path={LOGIN_URL} element={<LoginPage/>}/>
           <Route path={REGISTER_URL} element={<RegisterPage/>}/>
           <Route path="*" element={<h1>NOT FOUND!</h1>}/>
