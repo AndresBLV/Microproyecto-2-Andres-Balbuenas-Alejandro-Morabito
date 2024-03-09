@@ -1,0 +1,17 @@
+.NavContainer{
+    margin: 0px;
+    padding: 0.4rem;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 85px;
+    padding: 5px 10%;
+}
+
+.styleLink{
+    color: white;
+    text-decoration: none;
+    margin-right: 15rem;
+    font-weight: 400;
+    }
