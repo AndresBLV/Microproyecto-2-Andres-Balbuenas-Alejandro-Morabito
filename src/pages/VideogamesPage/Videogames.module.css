@@ -95,3 +95,45 @@
     color: #181b20;
     text-decoration: underline;
   }
+
+  .containerdiv {
+    width: 100%;
+    min-height: 100vh;
+    background: #fff;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 0 120px;
+    padding-top: 64px;
+  }
+  
+  .containerdiv .loadingTxt {
+    display: block;
+    text-align: center;
+    font-size: 3em;
+    font-weight: 900;
+    text-transform: uppercase;
+    color:#101828;
+    margin-top: 32px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  
+  .details {
+    grid-column-start: 2;
+    grid-column-end: 4;
+  }
+  
+  .details .title {
+    display: block;
+    font-size: 3em;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #101828;
+  }
+  
+  .details .info {
+      margin: 16px 0;
+      font-size: 20px;
+      color: #101828;
+  }
