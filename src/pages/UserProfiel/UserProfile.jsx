@@ -1,68 +1,51 @@
+import "./UserProfile.css"
+import { useUser } from "../../contexts/UserContext";
+
 export function UserProfile(){
     
-    <head>    
-        <style>    
-            @import (UserProfile.mdule.css);
-        </style>    
-    </head>
-    
+    const {user,isLoading} = useUser();
+
     return(
-        
         <div>
-            <div>
-                <ul class="tab-group">
-                    <li class="tab active"><a href="Perfil">Perfil</a></li>
-                    <li class="tab"><a href="Editar">Editar</a></li>
-                </ul>
-            </div>
-
-            <div class="profile">
-                <img src="https://cdn-icons-png.freepik.com/256/1144/1144760.png" alt="" width="100" height="100"></img>
-
-                <div class="name">
-                    Nombre Apellido
-                </div>
-            </div>
-
-            
-
+            <br></br>
+            <div class="card1">
             <h2>Datos de perfil</h2>
-            <div class="card">
+            <br></br>
+                <img src="https://cdn-icons-png.freepik.com/256/1144/1144760.png" alt="" width="100" height="100"></img>
+                <br></br>
                 <div class="card-body">
                     <i class="perfil"></i>
                     <table>
-                        <tbody>
+                        <body>
                             <tr>
-                                <td>Nombre</td>
-                                <td>:</td>
-                                <td>Nombre Apellido</td>
+                                <td>Nombre:</td>
+                                <td>{user.name}</td>
                             </tr>
                             <tr>
-                                <td>Email</td>
-                                <td>:</td>
-                                <td>Email@Email.com</td>
+                                <td>Email:</td>
+                                <td>{user.email}</td>
                             </tr>
                             <tr>
-                                <td>Juego Favorito</td>
-                                <td>:</td>
-                                <td>Juego</td>
+                                <td>Juego Favorito:</td>
+                                <td>{user.game}</td>
                             </tr>
                             <tr>
-                                <td>Clubes afiliados</td>
-                                <td>:</td>
-                                <td>Club</td>
+                                <td>Clubes afiliados:</td>
+                                <td>{user.clubes}</td>
                             </tr>
-                        </tbody>
+                        </body>
                     </table>
                 </div>
             </div>
-
-            <h2>Editar datos de perfil</h2>
-            <div class="card">
-                <div class="card-body">
+       
+            <div class="card2">
+                <br></br>
+                <br></br>
+                <h2>Editar datos</h2>
+                <br></br>
                     <i class="Editar"></i>
                     <table>
-                        <tbody>
+                        <body>
                             <tr>
                                 <td>Nombre</td>
                                 <td>:</td>
@@ -71,22 +54,21 @@ export function UserProfile(){
                             <tr>
                                 <td>Email</td>
                                 <td>:</td>
-                                <input type="text" placeholder="Email"></input>
+                                <input type="email" placeholder="Email"></input>
                             </tr>
                             <tr>
                                 <td>Juego Favorito</td>
                                 <td>:</td>
                                 <input type="text" placeholder="Juego"></input>
                             </tr>
+                            ,<center>
                             <tr>
-                                <td>Clubes afiliados</td>
-                                <td>:</td>
-                                <input type="text" placeholder="Club"></input>
+                                <button type="submit">Confirmar</button>
                             </tr>
-                        </tbody>
+                            </center>
+                        </body>
                     </table>
                 </div>
-            </div>
         </div>
 
     
