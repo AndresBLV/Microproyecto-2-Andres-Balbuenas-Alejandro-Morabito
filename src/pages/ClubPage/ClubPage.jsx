@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react"
-import { getDocs,collection } from "firebase/firestore"
+import { getDocs,collection, doc, updateDoc } from "firebase/firestore"
 import {db} from "../../firebase/config";
 import styles from "./ClubPage.module.css"
-import { Link, useNavigate } from "react-router-dom";
+import { useUser } from "../../contexts/UserContext";
 
 
 export function ClubPage(){
 
+    const {user,isLoading} = useUser();
+    
     const [clubes,setClubes] = useState([]);
 
-    const [games,setGames] = useState([])
+    const [games,setGames] = useState([]);
 
+    const membresia = user.clubes;
 
+    
     useEffect(()=> {
         const getGames = async ()=> {
             try {
@@ -26,7 +30,7 @@ export function ClubPage(){
             }
         }
         getGames()
-    },[])
+    },[]);
 
     useEffect(()=> {
         const getClubes = async ()=> {
@@ -42,24 +46,24 @@ export function ClubPage(){
             }
         }
         getClubes()
-    },[])
+    },[]);
+
+
 
     return (
             <>
-
             <div className={styles.container}>
             {
                 clubes.map(club=>(
-                    <div className={styles.rightSideContainer}>
-                    <div key={club.id} className={styles.infoContainer}>
+                    <div key={club.id}className={styles.rightSideContainer}>
                         <div className={styles.infoContainer}>
                             <h2 className={styles.name}>{club.nombre}</h2>
                         </div>
-                        <div className={styles.infoContainer}>
+                        <div  className={styles.infoContainer}>
                             <h3 className={styles.subtitle}>Descripcion:</h3>
                             <h3 className={styles.subtitleInfo}>{club.descripcion}</h3>
                         </div>
-                        <div className={styles.infoContainer}>
+                        <div  className={styles.infoContainer}>
                         <h3 className={styles.subtitle}>Videojuegos:</h3>
                             {
                                 club.videojuegos.map(gameId=>(
@@ -68,14 +72,10 @@ export function ClubPage(){
                                     </div>
                                 ))
                             }
-                        <div className={styles.infoContainer}>
-                        <Link >
-                        <span className={styles.redirectLink}>Descripcion Juegos</span>
-                        </Link>
+                        <div  className={styles.infoContainer}>
                         </div>
-                        <button type="submit" className={styles.submitBtn}>Afiliar</button>
+                        <button type="button" className={styles.submitBtn}>Afiliar</button>
                         </div>
-                    </div>
                     </div>
                 ))
             }
