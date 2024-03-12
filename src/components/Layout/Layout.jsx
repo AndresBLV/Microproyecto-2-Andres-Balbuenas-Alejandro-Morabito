@@ -7,10 +7,12 @@ export function Layout(){
     return(
         <main>
             <UserContextProvider>
-                <Navbar/>
-                <section className='body'>
-                    <Outlet/>
-                </section>
+
+                    <Navbar/>
+                    <section className='body'>
+                        <Outlet/>
+                    </section>
+
             </UserContextProvider>
         </main>
     )

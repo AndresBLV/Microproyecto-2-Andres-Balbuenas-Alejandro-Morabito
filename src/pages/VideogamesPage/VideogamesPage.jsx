@@ -59,7 +59,7 @@ export function VideogamesPage(){
                 </button>
             </form>
         </div>
-
+        
         <div className={styles.containerdiv}>
         <div className={styles.details}>
             <h1 className={styles.title}>{game.titulo}</h1>
